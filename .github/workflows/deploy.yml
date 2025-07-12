@@ -1,34 +1,41 @@
-name: Deploy to GitHub Pages
+# .github/workflows/deploy.yml
+
+name: Build and Deploy
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches:
+      - main # This workflow runs when you push to the 'main' branch
 
 jobs:
   build-and-deploy:
+    # THIS IS THE MOST IMPORTANT PART FOR THE DEPLOYMENT TO WORK
+    permissions:
+      contents: write # Grants the workflow permission to push to your repo
+
     runs-on: ubuntu-latest
-    
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-        cache: 'npm'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install Dependencies
+        run: npm ci
 
-    - name: Build
-      run: npm run build
+      - name: Build Project
+        run: npm run build # Or your specific build command
 
-    - name: Deploy to GitHub Pages
-      if: github.ref == 'refs/heads/main'
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./out
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          # This token is automatically provided by GitHub Actions
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          
+          # This is the directory that your 'npm run build' command creates
+          # For Next.js, it's 'out'. For Create React App, it's 'build'. For Vite, 'dist'.
+          publish_dir: ./out
