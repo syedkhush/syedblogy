@@ -5,6 +5,7 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 
+import ClickSoundProvider from "@/components/click-sound-provider"
 import PageTransition from "@/components/page-transition"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -48,12 +49,10 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${crimsonText.variable} font-sans antialiased text-foreground check-bg`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
-          {/* ThemeToggle is now likely inside the Navbar or PageTransition if we want to keep it persistent, 
-              but for now keeping it here or moving it to a layout component would be best. 
-              Let's keep it here but wrap children in PageTransition. 
-          */}
-          <ThemeToggle />
-          <PageTransition>{children}</PageTransition>
+          <ClickSoundProvider>
+            <ThemeToggle />
+            <PageTransition>{children}</PageTransition>
+          </ClickSoundProvider>
         </ThemeProvider>
       </body>
     </html>
