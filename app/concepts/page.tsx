@@ -1,11 +1,42 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, BookOpen, Mountain, Sun, Wind } from "lucide-react"
-import { Navigation } from "@/components/navigation"
+import { ArrowLeft, BookOpen, Mountain, Sun, Wind, Scale, Globe, Cloud } from "lucide-react"
+
+// ... imports remain the same
 
 export default function ConceptsPage() {
   const concepts = [
+    {
+      title: "The Dichotomy of Control",
+      description: "Distinguishing between what is up to us and what is not",
+      longDescription:
+        "The fundamental Stoic distinction. We have complete control over our own judgments and actions, but none over external events. Mastering this distinction leads to invulnerability and peace of mind.",
+      icon: Scale,
+      href: "/concepts/dichotomy-of-control",
+      color: "bg-stone-100 hover:bg-stone-200 dark:bg-stone-900/50 dark:hover:bg-stone-900",
+      keyPrinciples: ["Internal vs External", "Freedom", "Acceptance"],
+    },
+    {
+      title: "Sympatheia",
+      description: "The mutual interdependence of all things",
+      longDescription:
+        "Recognition that all things in the universe are mutually interwoven. We are parts of a single organism, and what is bad for the hive is bad for the bee. This fosters a sense of cosmopolitanism and connection to nature.",
+      icon: Globe,
+      href: "/concepts/sympatheia",
+      color: "bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/20 dark:hover:bg-indigo-900/30",
+      keyPrinciples: ["Interconnectedness", "Cosmopolitanism", "Nature"],
+    },
+    {
+      title: "The View From Above",
+      description: "Gaining an objective perspective on life",
+      longDescription:
+        "A mental exercise of envisioning the world from a cosmic viewpoint. This objective perspective reduces our trivial worries and reminds us of the vastness of the whole.",
+      icon: Cloud,
+      href: "/concepts/view-from-above",
+      color: "bg-sky-50 hover:bg-sky-100 dark:bg-sky-900/20 dark:hover:bg-sky-900/30",
+      keyPrinciples: ["Objectivity", "Perspective", "Humility"],
+    },
     {
       title: "Premeditatio Malorum",
       description: "The practice of imagining loss to cultivate gratitude and resilience",
