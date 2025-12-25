@@ -2,8 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, BookOpen, Mountain, Sun, Wind, Scale, Globe, Cloud } from "lucide-react"
-
-// ... imports remain the same
+import { Navigation } from "@/components/navigation"
 
 export default function ConceptsPage() {
   const concepts = [
