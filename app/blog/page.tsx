@@ -4,64 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { ArrowLeft, Calendar, Clock } from "lucide-react"
 import { Navigation } from "@/components/navigation"
+import { blogPosts } from "@/lib/blog-data"
 
 export default function BlogPage() {
-  const blogPosts = [
-    {
-      title: "On the Discipline of Desire",
-      excerpt:
-        "How Marcus Aurelius taught us to want what we have, rather than have what we want. An exploration of contentment and the Stoic approach to managing our desires in a world of endless distractions.",
-      date: "December 15, 2024",
-      readTime: "5 min read",
-      tags: ["Philosophy", "Desire", "Marcus Aurelius"],
-      slug: "discipline-of-desire",
-    },
-    {
-      title: "Morning Reflections: A Daily Practice",
-      excerpt:
-        "Starting each day with Stoic meditation and the practice of negative visualization. How ancient wisdom can transform your morning routine and set the tone for a more mindful day.",
-      date: "December 10, 2024",
-      readTime: "3 min read",
-      tags: ["Practice", "Morning", "Meditation"],
-      slug: "morning-reflections",
-    },
-    {
-      title: "The View from Above",
-      excerpt:
-        "Marcus Aurelius' cosmic perspective and how it transforms our daily struggles. Learning to see our problems from the perspective of eternity and finding peace in the vastness of existence.",
-      date: "December 5, 2024",
-      readTime: "7 min read",
-      tags: ["Perspective", "Cosmos", "Wisdom"],
-      slug: "view-from-above",
-    },
-    {
-      title: "Amor Fati in Practice",
-      excerpt:
-        "Learning to love your fate, even when it's difficult. How the Stoic concept of amor fati can help us embrace life's challenges and find meaning in every experience.",
-      date: "November 28, 2024",
-      readTime: "6 min read",
-      tags: ["Amor Fati", "Acceptance", "Growth"],
-      slug: "amor-fati-practice",
-    },
-    {
-      title: "The Inner Citadel",
-      excerpt:
-        "Building an unassailable fortress of the mind through Stoic principles. How to develop inner strength that no external circumstance can shake.",
-      date: "November 20, 2024",
-      readTime: "8 min read",
-      tags: ["Inner Strength", "Resilience", "Philosophy"],
-      slug: "inner-citadel",
-    },
-    {
-      title: "On Impermanence and Joy",
-      excerpt:
-        "Finding happiness in the temporary nature of all things. How understanding impermanence can actually increase our capacity for joy and appreciation.",
-      date: "November 15, 2024",
-      readTime: "4 min read",
-      tags: ["Impermanence", "Joy", "Mindfulness"],
-      slug: "impermanence-and-joy",
-    },
-  ]
+  const posts = blogPosts
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50">
@@ -83,7 +29,7 @@ export default function BlogPage() {
         </div>
 
         <div className="grid gap-8">
-          {blogPosts.map((post, index) => (
+          {posts.map((post, index) => (
             <Card key={index} className="bg-white border-0 shadow-sm hover:shadow-md transition-all duration-300 group">
               <CardHeader className="pb-4">
                 <div className="flex flex-wrap gap-2 mb-3">
