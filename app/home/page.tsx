@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
@@ -104,6 +105,22 @@ export default function HomePage() {
                             <Link href="/meditations">Read Meditations</Link>
                         </Button>
                     </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.5, duration: 1 }}
+                        className="mt-16 relative w-64 h-64 mx-auto md:w-80 md:h-80 rounded-full overflow-hidden shadow-2xl border-4 border-primary/20"
+                    >
+                        <Image
+                            src="/marcus-aurelius.png"
+                            alt="Marcus Aurelius Bust"
+                            className="object-cover"
+                            fill
+                            priority
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
+                    </motion.div>
                 </motion.div>
             </section>
 
