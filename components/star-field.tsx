@@ -29,8 +29,8 @@ export default function StarField() {
         }
 
         const stars: Star[] = []
-        const numStars = 800
-        const speed = 0.5
+        const numStars = 1500 // Increased from 800
+        const speed = 1.5 // Increased from 0.5 for more dramatic movement
 
         // Mouse position for parallax
         let mouseX = 0
@@ -77,13 +77,13 @@ export default function StarField() {
                 let x = star.x * k + centerX
                 let y = star.y * k + centerY
 
-                // Apply parallax based on mouse position
-                x += mouseX * (1 - star.z / canvas.width) * 50
-                y += mouseY * (1 - star.z / canvas.width) * 50
+                // Apply parallax based on mouse position (increased from 50 to 100)
+                x += mouseX * (1 - star.z / canvas.width) * 100
+                y += mouseY * (1 - star.z / canvas.width) * 100
 
                 // Calculate size and opacity based on depth
-                const size = (1 - star.z / canvas.width) * star.size * 2
-                const opacity = 1 - star.z / canvas.width
+                const size = (1 - star.z / canvas.width) * star.size * 3 // Increased from *2
+                const opacity = Math.min(1, (1 - star.z / canvas.width) * 1.5) // Brighter stars
 
                 // Draw star
                 if (x >= 0 && x <= canvas.width && y >= 0 && y <= canvas.height) {
