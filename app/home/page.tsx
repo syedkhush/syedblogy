@@ -62,7 +62,7 @@ export default function HomePage() {
     ]
 
     return (
-        <div className="min-h-screen bg-background text-foreground relative">
+        <div className="min-h-screen text-foreground relative">
             <StarField />
             <Navigation />
 
