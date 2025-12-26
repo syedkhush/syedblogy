@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, User, Code, BookOpen, Heart, Coffee, Github, Linkedin, Mail } from "lucide-react"
@@ -20,8 +21,14 @@ export default function AboutPage() {
 
         <div className="mb-12">
           <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-full bg-slate-100 dark:bg-slate-800">
-              <User className="w-8 h-8 text-slate-700 dark:text-slate-300" />
+            <div className="relative w-20 h-20 overflow-hidden rounded-full border-2 border-slate-200 dark:border-slate-700 shadow-sm">
+              <Image
+                src="/profile.png"
+                alt="Syed Khush"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-800 dark:text-slate-200">
