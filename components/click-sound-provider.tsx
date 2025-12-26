@@ -17,7 +17,7 @@ export default function ClickSoundProvider({
         const handleClick = (e: MouseEvent) => {
             // Check if the clicked element or its parents is an anchor or button
             const target = e.target as HTMLElement;
-            const clickable = target.closest("a, button");
+            const clickable = target.closest("a, button, [role='button']");
 
             if (clickable && audioRef.current) {
                 // Reset time directly to allow rapid clicks
@@ -30,10 +30,11 @@ export default function ClickSoundProvider({
             }
         };
 
-        window.addEventListener("click", handleClick);
+        // Use capture phase to detect clicks even if other components prevent bubbling
+        window.addEventListener("click", handleClick, true);
 
         return () => {
-            window.removeEventListener("click", handleClick);
+            window.removeEventListener("click", handleClick, true);
         };
     }, []);
 

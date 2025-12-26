@@ -9,6 +9,7 @@ import { BookOpen, Leaf, Mountain, Sun, Wind, Scale, Globe, Cloud } from "lucide
 import { Navigation } from "@/components/navigation"
 import { BuyMeCoffee } from "@/components/buy-me-coffee"
 import { motion } from "framer-motion"
+import DailyPractice from "@/components/daily-practice"
 
 export default function HomePage() {
     const container = {
@@ -124,25 +125,8 @@ export default function HomePage() {
                 </motion.div>
             </section>
 
-            {/* Featured Quote */}
-            <motion.section
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="py-20 px-4 sm:px-6 lg:px-8 border-y border-border/40 bg-card/30 backdrop-blur-sm"
-            >
-                <div className="max-w-4xl mx-auto">
-                    <blockquote className="text-center">
-                        <p className="text-2xl md:text-4xl font-serif text-foreground italic leading-relaxed mb-8">
-                            "You have power over your mind—not outside events. Realize this, and you will find strength."
-                        </p>
-                        <footer className="text-muted-foreground">
-                            <cite className="font-medium not-italic tracking-wide uppercase text-sm">Marcus Aurelius</cite>
-                        </footer>
-                    </blockquote>
-                </div>
-            </motion.section>
+            {/* Daily Practice & Quote */}
+            <DailyPractice />
 
             {/* Philosophical Concepts Grid */}
             <section className="py-24 px-4 sm:px-6 lg:px-8">
