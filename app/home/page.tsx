@@ -10,6 +10,9 @@ import { Navigation } from "@/components/navigation"
 import { BuyMeCoffee } from "@/components/buy-me-coffee"
 import { motion } from "framer-motion"
 import DailyPractice from "@/components/daily-practice"
+import dynamic from "next/dynamic"
+
+const StarField = dynamic(() => import("@/components/star-field"), { ssr: false })
 
 export default function HomePage() {
     const container = {
@@ -59,7 +62,8 @@ export default function HomePage() {
     ]
 
     return (
-        <div className="min-h-screen bg-background text-foreground">
+        <div className="min-h-screen bg-background text-foreground relative">
+            <StarField />
             <Navigation />
 
             {/* Hero Section */}
