@@ -2,7 +2,11 @@
 
 import { useEffect, useRef } from "react"
 
-export default function StarField() {
+interface StarFieldProps {
+    isImmersive?: boolean
+}
+
+export default function StarField({ isImmersive = false }: StarFieldProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null)
 
     useEffect(() => {
@@ -30,7 +34,11 @@ export default function StarField() {
 
         const stars: Star[] = []
         const numStars = 1500 // Increased from 800
-        const speed = 1.5 // Increased from 0.5 for more dramatic movement
+        const baseSpeed = 1.5
+        const immersiveSpeed = 12.0
+
+        // Use a ref to track current speed for interpolation
+        const currentMovingSpeed = { value: baseSpeed }
 
         // Mouse position for parallax
         let mouseX = 0
@@ -55,6 +63,10 @@ export default function StarField() {
 
         // Animation loop
         const animate = () => {
+            // Smoothly interpolate speed based on immersive state
+            const targetSpeed = isImmersive ? immersiveSpeed : baseSpeed
+            currentMovingSpeed.value += (targetSpeed - currentMovingSpeed.value) * 0.05
+
             ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -63,7 +75,7 @@ export default function StarField() {
 
             stars.forEach((star) => {
                 // Move star
-                star.z -= speed
+                star.z -= currentMovingSpeed.value
 
                 // Reset star if it goes past the screen
                 if (star.z <= 0) {
