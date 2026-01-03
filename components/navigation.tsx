@@ -1,8 +1,10 @@
+
 "use client"
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { Globe } from "lucide-react"
+import { Search } from "lucide-react"
+import { Input } from "@/components/ui/input"
 
 export function Navigation() {
   const pathname = usePathname()
@@ -13,51 +15,48 @@ export function Navigation() {
     return false
   }
 
+  const links = [
+    { href: "/", label: "Home" },
+    { href: "/archive", label: "Archive" },
+    { href: "/about", label: "About" },
+    { href: "/support", label: "Support" },
+  ]
+
   return (
-    <nav className="border-b border-slate-200/50 dark:border-slate-700/50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sticky top-0 z-40">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <Link href="/home" className="flex items-center gap-2 text-xl font-serif font-semibold text-slate-800 dark:text-slate-200">
-            <Globe className="w-6 h-6" />
-            syedkhush.com
+    <nav className="sticky top-0 z-50 w-full bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b border-slate-100">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16">
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <span className="font-serif text-2xl font-bold text-[#0055AA] tracking-tight">syedkhush.com</span>
           </Link>
-          <div className="flex space-x-6">
-            <Link
-              href="/blog"
-              className={`transition-colors ${isActive("/blog")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Essays
-            </Link>
-            <Link
-              href="/about"
-              className={`transition-colors ${isActive("/about")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              About
-            </Link>
-            <Link
-              href="/reading-list"
-              className={`transition-colors ${isActive("/reading-list")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Reading List
-            </Link>
-            <Link
-              href="/contact"
-              className={`transition-colors ${isActive("/contact")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Contact
-            </Link>
+
+          {/* Desktop Links */}
+          <div className="hidden md:flex items-center space-x-8">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors ${isActive(link.href)
+                  ? "text-[#0055AA]"
+                  : "text-slate-600 hover:text-[#0055AA]"
+                  }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Search & Mobile Menu Placeholder */}
+          <div className="flex items-center gap-4">
+            <div className="relative hidden sm:block">
+              <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-slate-400" />
+              <Input
+                type="search"
+                placeholder="Search..."
+                className="w-[200px] pl-9 bg-slate-50 border-slate-200 focus-visible:ring-[#0055AA]"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -9,78 +9,27 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%;
-    /* Deep Charcoal */
-    --foreground: 34 20% 90%;
-    /* Warm Sand */
-    --card: 240 10% 6%;
-    --card-foreground: 34 20% 90%;
-    --popover: 240 10% 6%;
-    --popover-foreground: 34 20% 90%;
-    --primary: 45 40% 55%;
-    /* Muted Gold */
-    --primary-foreground: 240 10% 4%;
-    --secondary: 240 10% 12%;
-    /* Darker Gray */
-    --secondary-foreground: 34 20% 90%;
-    --muted: 240 10% 12%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 45 40% 55%;
-    --accent-foreground: 240 10% 4%;
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 34 20% 90%;
-    --border: 240 10% 12%;
-    --input: 240 10% 12%;
-    --ring: 45 40% 55%;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 210 100% 33%;
+    /* #0055AA */
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 210 100% 33%;
     --radius: 0.5rem;
-    --chart-1: 45 40% 55%;
-    --chart-2: 34 20% 90%;
-    --chart-3: 240 5% 65%;
-    --chart-4: 240 10% 20%;
-    --chart-5: 240 10% 12%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 240 10% 4%;
-    --foreground: 34 20% 90%;
-    --card: 240 10% 6%;
-    --card-foreground: 34 20% 90%;
-    --popover: 240 10% 6%;
-    --popover-foreground: 34 20% 90%;
-    --primary: 45 40% 55%;
-    --primary-foreground: 240 10% 4%;
-    --secondary: 240 10% 12%;
-    --secondary-foreground: 34 20% 90%;
-    --muted: 240 10% 12%;
-    --muted-foreground: 240 5% 65%;
-    --accent: 45 40% 55%;
-    --accent-foreground: 240 10% 4%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 34 20% 90%;
-    --border: 240 10% 12%;
-    --input: 240 10% 12%;
-    --ring: 45 40% 55%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 }
 
@@ -93,70 +42,27 @@
     @apply bg-background text-foreground;
   }
 
-  .font-serif {
-    font-family: var(--font-crimson);
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif text-[#0055AA] font-bold;
   }
 }
 
-/* Simple prose styling without theme() function */
-.prose {
-  @apply text-slate-700 dark:text-slate-300;
+/* Typography Improvements */
+.prose-xl {
+  font-size: 1.25rem;
+  line-height: 1.8;
 }
 
-.prose h1 {
-  @apply text-slate-900 dark:text-slate-100 font-serif;
+/* Sidebar Custom */
+.sidebar-box {
+  @apply mb-8 p-6 bg-slate-50 border border-slate-200 rounded-lg;
 }
 
-.prose h2 {
-  @apply text-slate-900 dark:text-slate-100 font-serif;
-}
-
-.prose h3 {
-  @apply text-slate-900 dark:text-slate-100 font-serif;
-}
-
-.prose p {
-  @apply text-slate-700 dark:text-slate-300;
-}
-
-.prose blockquote {
-  @apply text-slate-700 dark:text-slate-300 border-slate-300 dark:border-slate-600;
-}
-
-.prose strong {
-  @apply text-slate-900 dark:text-slate-100;
-}
-
-.prose em {
-  @apply text-slate-700 dark:text-slate-300;
-}
-
-.prose ul {
-  @apply text-slate-700 dark:text-slate-300;
-}
-
-.prose ol {
-  @apply text-slate-700 dark:text-slate-300;
-}
-
-.prose li {
-  @apply text-slate-700 dark:text-slate-300;
-}
-
-/* Fix for list rendering and spacing */
-.prose ul {
-  @apply list-disc pl-6 my-6 space-y-2;
-}
-
-.prose ol {
-  @apply list-decimal pl-6 my-6 space-y-2;
-}
-
-.prose p {
-  @apply leading-relaxed mb-8;
-  /* Increased margin for calmer reading */
-}
-
-.prose blockquote {
-  @apply border-l-4 border-slate-300 dark:border-slate-700 pl-6 italic my-8 text-lg;
+.sidebar-title {
+  @apply text-lg font-bold mb-4 text-[#0055AA] uppercase tracking-wide border-b-2 border-[#0055AA] pb-2 inline-block;
 }

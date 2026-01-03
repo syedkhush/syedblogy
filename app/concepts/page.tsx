@@ -1,8 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowLeft, BookOpen, Mountain, Sun, Wind, Scale, Globe, Cloud } from "lucide-react"
-import { Navigation } from "@/components/navigation"
+import { BookOpen, Mountain, Sun, Wind, Scale, Globe, Cloud } from "lucide-react"
 
 export default function ConceptsPage() {
   const concepts = [
@@ -13,7 +12,7 @@ export default function ConceptsPage() {
         "The fundamental Stoic distinction. We have complete control over our own judgments and actions, but none over external events. Mastering this distinction leads to invulnerability and peace of mind.",
       icon: Scale,
       href: "/concepts/dichotomy-of-control",
-      color: "bg-stone-100 hover:bg-stone-200 dark:bg-stone-900/50 dark:hover:bg-stone-900",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Internal vs External", "Freedom", "Acceptance"],
     },
     {
@@ -23,7 +22,7 @@ export default function ConceptsPage() {
         "Recognition that all things in the universe are mutually interwoven. We are parts of a single organism, and what is bad for the hive is bad for the bee. This fosters a sense of cosmopolitanism and connection to nature.",
       icon: Globe,
       href: "/concepts/sympatheia",
-      color: "bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/20 dark:hover:bg-indigo-900/30",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Interconnectedness", "Cosmopolitanism", "Nature"],
     },
     {
@@ -33,7 +32,7 @@ export default function ConceptsPage() {
         "A mental exercise of envisioning the world from a cosmic viewpoint. This objective perspective reduces our trivial worries and reminds us of the vastness of the whole.",
       icon: Cloud,
       href: "/concepts/view-from-above",
-      color: "bg-sky-50 hover:bg-sky-100 dark:bg-sky-900/20 dark:hover:bg-sky-900/30",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Objectivity", "Perspective", "Humility"],
     },
     {
@@ -43,7 +42,7 @@ export default function ConceptsPage() {
         "A powerful Stoic exercise that involves deliberately contemplating potential setbacks, losses, or difficulties. This practice helps build emotional resilience, increases gratitude for what we have, and prepares us mentally for life's inevitable challenges.",
       icon: Mountain,
       href: "/concepts/premeditatio-malorum",
-      color: "bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Mental preparation", "Gratitude cultivation", "Emotional resilience"],
     },
     {
@@ -53,7 +52,7 @@ export default function ConceptsPage() {
         "The practice of not just accepting but actually loving whatever happens to us, including difficulties and setbacks. This concept goes beyond mere acceptance to find meaning and even gratitude in all of life's experiences.",
       icon: Sun,
       href: "/concepts/amor-fati",
-      color: "bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/20 dark:hover:bg-amber-900/30",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Radical acceptance", "Finding meaning in adversity", "Inner freedom"],
     },
     {
@@ -63,138 +62,99 @@ export default function ConceptsPage() {
         "The practice of remembering our mortality to inspire authentic living. Rather than being morbid, this meditation on death helps us prioritize what truly matters and live with greater intention and appreciation.",
       icon: Wind,
       href: "/concepts/memento-mori",
-      color: "bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700",
+      bgHover: "hover:bg-slate-50",
       keyPrinciples: ["Present moment awareness", "Priority clarity", "Gratitude for life"],
     },
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-stone-50 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900">
-      <Navigation />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <Link
-          href="/"
-          className="inline-flex items-center text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 mb-8"
-        >
-          <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Digital Garden
-        </Link>
-
-        <div className="mb-12">
-          <div className="flex items-center gap-4 mb-6">
-            <div className="p-4 rounded-full bg-slate-100 dark:bg-slate-800">
-              <BookOpen className="w-8 h-8 text-slate-700 dark:text-slate-300" />
-            </div>
-            <div>
-              <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-800 dark:text-slate-200">
-                Stoic Concepts
-              </h1>
-              <p className="text-lg text-slate-600 dark:text-slate-400 mt-2">
-                Fundamental principles for practical wisdom
-              </p>
-            </div>
+    <div className="space-y-12">
+      <header className="space-y-6">
+        <div className="flex items-center gap-4">
+          <div className="p-3 rounded-xl bg-[#0055AA]/5">
+            <BookOpen className="w-8 h-8 text-[#0055AA]" />
           </div>
-
-          <p className="text-lg text-slate-600 dark:text-slate-400 max-w-3xl">
-            These core Stoic concepts have guided philosophers and practitioners for over two millennia. Each principle
-            offers practical tools for building resilience, finding peace, and living with greater wisdom and purpose.
-          </p>
+          <h1 className="text-4xl font-serif font-bold text-[#0055AA]">
+            Stoic Concepts
+          </h1>
         </div>
+        <p className="text-xl text-slate-600 font-serif leading-relaxed max-w-2xl">
+          Fundamental principles for practical wisdom. These concepts have guided philosophers and practitioners for over two millennia.
+        </p>
+      </header>
 
-        <div className="grid gap-8">
-          {concepts.map((concept, index) => {
-            const IconComponent = concept.icon
-            return (
-              <Card
-                key={index}
-                className={`${concept.color} border-0 shadow-sm hover:shadow-md transition-all duration-300 group`}
-              >
-                <CardHeader className="pb-4">
-                  <div className="flex items-start gap-6">
-                    <div className="p-4 rounded-lg bg-white/80 dark:bg-slate-900/80 group-hover:bg-white dark:group-hover:bg-slate-900 transition-colors flex-shrink-0">
-                      <IconComponent className="w-8 h-8 text-slate-700 dark:text-slate-300" />
-                    </div>
-                    <div className="flex-1">
-                      <CardTitle className="text-2xl font-serif text-slate-800 dark:text-slate-200 group-hover:text-slate-900 dark:group-hover:text-slate-100 mb-2">
-                        {concept.title}
-                      </CardTitle>
-                      <CardDescription className="text-slate-600 dark:text-slate-400 text-base mb-4">
-                        {concept.description}
-                      </CardDescription>
-                    </div>
+      <div className="grid gap-8">
+        {concepts.map((concept, index) => {
+          const IconComponent = concept.icon
+          return (
+            <Card
+              key={index}
+              className={`bg-white border-slate-100 shadow-sm hover:shadow-md transition-all duration-300 group ${concept.bgHover}`}
+            >
+              <CardHeader className="pb-4">
+                <div className="flex items-start gap-6">
+                  <div className="p-4 rounded-lg bg-slate-50 group-hover:bg-white transition-colors flex-shrink-0">
+                    <IconComponent className="w-8 h-8 text-[#0055AA]" />
                   </div>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-slate-700 dark:text-slate-300 leading-relaxed mb-6">{concept.longDescription}</p>
-
-                  <div className="mb-6">
-                    <h4 className="text-sm font-medium text-slate-800 dark:text-slate-200 mb-3">Key Principles:</h4>
-                    <div className="flex flex-wrap gap-2">
-                      {concept.keyPrinciples.map((principle, principleIndex) => (
-                        <span
-                          key={principleIndex}
-                          className="px-3 py-1 bg-white/60 dark:bg-slate-900/60 rounded-full text-sm text-slate-700 dark:text-slate-300"
-                        >
-                          {principle}
-                        </span>
-                      ))}
-                    </div>
+                  <div className="flex-1">
+                    <CardTitle className="text-2xl font-serif text-slate-800 group-hover:text-[#0055AA] transition-colors mb-2">
+                      <Link href={concept.href}>{concept.title}</Link>
+                    </CardTitle>
+                    <CardDescription className="text-slate-500 text-base mb-4">
+                      {concept.description}
+                    </CardDescription>
                   </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-700 leading-relaxed mb-6 font-serif text-lg">{concept.longDescription}</p>
 
-                  <Link href={concept.href}>
-                    <Button
-                      variant="outline"
-                      className="border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-900 bg-transparent"
-                    >
-                      Explore This Concept →
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            )
-          })}
-        </div>
+                <div className="mb-6">
+                  <h4 className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-3">Key Principles:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {concept.keyPrinciples.map((principle, principleIndex) => (
+                      <span
+                        key={principleIndex}
+                        className="px-3 py-1 bg-slate-50 rounded-full text-sm text-slate-600 font-medium"
+                      >
+                        {principle}
+                      </span>
+                    ))}
+                  </div>
+                </div>
 
-        {/* Additional Resources */}
-        <div className="mt-16 bg-slate-50 dark:bg-slate-800 rounded-lg p-8">
-          <h2 className="text-2xl font-serif font-medium text-slate-800 dark:text-slate-200 mb-6">
-            Deepen Your Practice
-          </h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mb-3">Daily Application</h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
-                These concepts are most powerful when applied consistently in daily life. Start with one concept and
-                practice it for a week before moving to the next.
-              </p>
-              <Link href="/blog">
-                <Button
-                  variant="outline"
-                  className="border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 bg-transparent"
-                >
-                  Read Practical Applications
-                </Button>
-              </Link>
-            </div>
-            <div>
-              <h3 className="text-lg font-medium text-slate-800 dark:text-slate-200 mb-3">Further Study</h3>
-              <p className="text-slate-600 dark:text-slate-400 mb-4">
-                Explore Marcus Aurelius' personal reflections and see how he applied these principles in his own life as
-                both emperor and philosopher.
-              </p>
-              <Link href="/meditations">
-                <Button
-                  variant="outline"
-                  className="border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:bg-white dark:hover:bg-slate-800 bg-transparent"
-                >
-                  Study the Meditations
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
+                <Link href={concept.href}>
+                  <Button
+                    variant="link"
+                    className="p-0 h-auto text-[#0055AA] font-bold hover:no-underline hover:text-[#004488]"
+                  >
+                    Explore This Concept →
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
+          )
+        })}
       </div>
+
+      <section className="bg-slate-50 border border-slate-100 rounded-2xl p-10 mt-16 text-center">
+        <h2 className="text-3xl font-serif font-bold text-[#0055AA] mb-4">Deepen Your Practice</h2>
+        <p className="text-slate-600 mb-8 max-w-xl mx-auto">
+          Stoicism is a practice of continuous self-examination. These concepts are designed to be lived, not just studied.
+        </p>
+        <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <Link href="/archive">
+            <Button className="bg-[#0055AA] hover:bg-[#004488] px-8 rounded-full">
+              Read Practical Applications
+            </Button>
+          </Link>
+          <Link href="/meditations">
+            <Button variant="outline" className="border-slate-300 rounded-full px-8">
+              Study the Meditations
+            </Button>
+          </Link>
+        </div>
+      </section>
     </div>
   )
 }

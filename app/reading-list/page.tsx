@@ -1,4 +1,4 @@
-import { Navigation } from "@/components/navigation"
+import { BookOpen } from "lucide-react"
 
 export default function ReadingListPage() {
     const books = [
@@ -29,36 +29,38 @@ export default function ReadingListPage() {
     ]
 
     return (
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-500">
-            <Navigation />
-            <main className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-                <header className="mb-16">
-                    <h1 className="text-4xl md:text-5xl font-serif font-bold text-slate-900 dark:text-slate-100 mb-6">
+        <div className="space-y-12">
+            <header className="space-y-6">
+                <div className="flex items-center gap-4">
+                    <div className="p-3 rounded-xl bg-amber-50">
+                        <BookOpen className="w-8 h-8 text-amber-600" />
+                    </div>
+                    <h1 className="text-4xl font-serif font-bold text-[#0055AA]">
                         Reading List
                     </h1>
-                    <p className="text-xl text-slate-600 dark:text-slate-400 font-serif italic">
-                        "A room without books is like a body without a soul." — Cicero
-                    </p>
-                </header>
-
-                <div className="space-y-12">
-                    {books.map((book, index) => (
-                        <div key={index} className="group">
-                            <a href={book.link} target="_blank" rel="noopener noreferrer" className="block">
-                                <h2 className="text-2xl font-serif font-semibold text-slate-800 dark:text-slate-200 group-hover:text-amber-700 dark:group-hover:text-amber-500 transition-colors">
-                                    {book.title}
-                                </h2>
-                                <p className="text-slate-500 dark:text-slate-500 mb-2 font-medium tracking-wide text-sm uppercase">
-                                    {book.author}
-                                </p>
-                                <p className="text-slate-700 dark:text-slate-300 leading-relaxed max-w-2xl">
-                                    {book.description}
-                                </p>
-                            </a>
-                        </div>
-                    ))}
                 </div>
-            </main>
+                <p className="text-xl text-slate-600 dark:text-slate-400 font-serif italic max-w-2xl">
+                    "A room without books is like a body without a soul." — Cicero
+                </p>
+            </header>
+
+            <div className="space-y-12">
+                {books.map((book, index) => (
+                    <div key={index} className="group border-b border-slate-50 pb-8 last:border-0">
+                        <a href={book.link} target="_blank" rel="noopener noreferrer" className="block space-y-3">
+                            <h2 className="text-2xl font-serif font-bold text-slate-800 group-hover:text-[#0055AA] transition-colors leading-tight">
+                                {book.title}
+                            </h2>
+                            <p className="text-slate-400 font-bold uppercase tracking-widest text-xs">
+                                {book.author}
+                            </p>
+                            <p className="text-lg text-slate-600 font-serif leading-relaxed max-w-2xl">
+                                {book.description}
+                            </p>
+                        </a>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }
