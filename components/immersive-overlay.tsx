@@ -21,7 +21,7 @@ export default function ImmersiveOverlay({ onExit }: ImmersiveOverlayProps) {
     useEffect(() => {
         const interval = setInterval(() => {
             setQuoteIndex((prev) => (prev + 1) % stoicQuotes.length)
-        }, 8000)
+        }, 12000)
         return () => clearInterval(interval)
     }, [])
 
@@ -29,9 +29,18 @@ export default function ImmersiveOverlay({ onExit }: ImmersiveOverlayProps) {
     useEffect(() => {
         if (!audioCtx.current) {
             audioCtx.current = new (window.AudioContext || (window as any).webkitAudioContext)()
+
+            // Root gain for the whole drone
             gainNode.current = audioCtx.current.createGain()
             gainNode.current.gain.setValueAtTime(0, audioCtx.current.currentTime)
-            gainNode.current.connect(audioCtx.current.destination)
+
+            // Lowpass filter to dampen the sound
+            const filter = audioCtx.current.createBiquadFilter()
+            filter.type = 'lowpass'
+            filter.frequency.setValueAtTime(400, audioCtx.current.currentTime)
+
+            filter.connect(audioCtx.current.destination)
+            gainNode.current.connect(filter)
 
             // Create a few low oscillators for a drone
             const frequencies = [60, 90, 120]
@@ -42,6 +51,17 @@ export default function ImmersiveOverlay({ onExit }: ImmersiveOverlayProps) {
                 osc.type = 'sine'
                 osc.frequency.setValueAtTime(freq, audioCtx.current!.currentTime)
 
+                // Add sub-oscillations (LFO) for breathing effect
+                const lfo = audioCtx.current!.createOscillator()
+                lfo.type = 'sine'
+                lfo.frequency.setValueAtTime(0.1, audioCtx.current!.currentTime)
+                const lfoGain = audioCtx.current!.createGain()
+                lfoGain.gain.setValueAtTime(0.02, audioCtx.current!.currentTime)
+
+                lfo.connect(lfoGain)
+                lfoGain.connect(oscGain.gain)
+                lfo.start()
+
                 oscGain.gain.setValueAtTime(0.05, audioCtx.current!.currentTime)
 
                 osc.connect(oscGain)
@@ -49,18 +69,41 @@ export default function ImmersiveOverlay({ onExit }: ImmersiveOverlayProps) {
                 osc.start()
                 oscillators.current.push(osc)
             })
+
+            // Add white noise for "cosmic wind"
+            const bufferSize = 2 * audioCtx.current.sampleRate
+            const noiseBuffer = audioCtx.current.createBuffer(1, bufferSize, audioCtx.current.sampleRate)
+            const output = noiseBuffer.getChannelData(0)
+            for (let i = 0; i < bufferSize; i++) {
+                output[i] = Math.random() * 2 - 1
+            }
+
+            const noise = audioCtx.current.createBufferSource()
+            noise.buffer = noiseBuffer
+            noise.loop = true
+
+            const noiseFilter = audioCtx.current.createBiquadFilter()
+            noiseFilter.type = 'bandpass'
+            noiseFilter.frequency.setValueAtTime(1200, audioCtx.current.currentTime)
+            noiseFilter.Q.setValueAtTime(1, audioCtx.current.currentTime)
+
+            const noiseGain = audioCtx.current.createGain()
+            noiseGain.gain.setValueAtTime(0.01, audioCtx.current.currentTime)
+
+            noise.connect(noiseFilter)
+            noiseFilter.connect(noiseGain)
+            noiseGain.connect(gainNode.current!)
+            noise.start()
         }
 
         if (isAudioEnabled) {
-            gainNode.current?.gain.setTargetAtTime(0.3, audioCtx.current.currentTime, 2)
+            gainNode.current?.gain.setTargetAtTime(0.4, audioCtx.current.currentTime, 2)
         } else {
             gainNode.current?.gain.setTargetAtTime(0, audioCtx.current.currentTime, 0.5)
         }
 
         return () => {
-            // Clean up audio on unmount
             if (audioCtx.current && audioCtx.current.state !== 'closed') {
-                // We actually want to keep it if we toggle, but here we fade out
                 gainNode.current?.gain.setTargetAtTime(0, audioCtx.current.currentTime, 1)
             }
         }
@@ -103,10 +146,10 @@ export default function ImmersiveOverlay({ onExit }: ImmersiveOverlayProps) {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
-                        transition={{ duration: 2, ease: "easeInOut" }}
+                        transition={{ duration: 3, ease: "easeInOut" }}
                         className="space-y-6"
                     >
-                        <p className="text-2xl md:text-3xl font-serif font-light text-white leading-relaxed italic">
+                        <p className="text-2xl md:text-3xl font-serif font-light text-white leading-relaxed italic drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">
                             "{stoicQuotes[quoteIndex].text}"
                         </p>
                         <div className="flex flex-col items-center gap-1">

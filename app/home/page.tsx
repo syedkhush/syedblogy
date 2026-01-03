@@ -14,11 +14,13 @@ import dynamic from "next/dynamic"
 import { useState } from "react"
 import { Telescope } from "lucide-react"
 import ImmersiveOverlay from "@/components/immersive-overlay"
+import PneumaTimer from "@/components/pneuma-timer"
 
 const StarField = dynamic(() => import("@/components/star-field"), { ssr: false })
 
 export default function HomePage() {
     const [isImmersive, setIsImmersive] = useState(false)
+    const [breathPulse, setBreathPulse] = useState(0)
     const container = {
         hidden: { opacity: 0 },
         show: {
@@ -57,6 +59,13 @@ export default function HomePage() {
             color: "bg-amber-50 hover:bg-amber-100 dark:bg-amber-900/20 dark:hover:bg-amber-900/30",
         },
         {
+            title: "Apatheia",
+            description: "Freedom from passions - achieving a state of inner tranquility",
+            icon: Wind,
+            href: "/concepts/apatheia",
+            color: "bg-teal-50 hover:bg-teal-100 dark:bg-teal-900/20 dark:hover:bg-teal-900/30",
+        },
+        {
             title: "The View From Above",
             description: "Gaining an objective perspective on life",
             icon: Cloud,
@@ -67,7 +76,7 @@ export default function HomePage() {
 
     return (
         <div className="min-h-screen text-foreground relative overflow-x-hidden">
-            <StarField isImmersive={isImmersive} />
+            <StarField isImmersive={isImmersive} breathPulse={breathPulse} />
 
             <AnimatePresence>
                 {isImmersive && (
@@ -165,6 +174,24 @@ export default function HomePage() {
                 {/* Daily Practice & Quote */}
                 <DailyPractice />
 
+                {/* Spiritual Exercises */}
+                <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/50 dark:bg-slate-900/10">
+                    <div className="max-w-7xl mx-auto">
+                        <div className="text-center mb-16">
+                            <h2 className="text-3xl md:text-5xl font-serif font-light text-foreground mb-6">
+                                Spiritual Exercises
+                            </h2>
+                            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+                                Ancient techniques to center the soul and master the breath.
+                            </p>
+                        </div>
+
+                        <div className="flex justify-center">
+                            <PneumaTimer onPulse={setBreathPulse} />
+                        </div>
+                    </div>
+                </section>
+
                 {/* Philosophical Concepts Grid */}
                 <section className="py-24 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto">
@@ -190,10 +217,10 @@ export default function HomePage() {
                                     <motion.div variants={item} key={index}>
                                         <Link href={concept.href} className="h-full block">
                                             <Card
-                                                className="bg-card hover:bg-accent/5 border-border/50 shadow-sm hover:shadow-md transition-all duration-300 h-full group"
+                                                className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 h-full group"
                                             >
                                                 <CardHeader className="pb-4">
-                                                    <div className="mb-4 p-3 w-fit rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                                                    <div className="mb-4 p-3 w-fit rounded-lg bg-primary/10 group-hover:bg-primary/30 transition-colors">
                                                         <IconComponent className="w-6 h-6 text-primary" />
                                                     </div>
                                                     <CardTitle className="text-xl font-serif text-foreground group-hover:text-primary transition-colors">

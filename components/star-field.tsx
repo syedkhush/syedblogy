@@ -4,10 +4,19 @@ import { useEffect, useRef } from "react"
 
 interface StarFieldProps {
     isImmersive?: boolean
+    breathPulse?: number // 0 to 1
 }
 
-export default function StarField({ isImmersive = false }: StarFieldProps) {
+export default function StarField({ isImmersive = false, breathPulse = 0 }: StarFieldProps) {
     const canvasRef = useRef<HTMLCanvasElement>(null)
+    const isImmersiveRef = useRef(isImmersive)
+    const breathPulseRef = useRef(breathPulse)
+
+    // Update refs when props change
+    useEffect(() => {
+        isImmersiveRef.current = isImmersive
+        breathPulseRef.current = breathPulse
+    }, [isImmersive, breathPulse])
 
     useEffect(() => {
         const canvas = canvasRef.current
@@ -33,9 +42,9 @@ export default function StarField({ isImmersive = false }: StarFieldProps) {
         }
 
         const stars: Star[] = []
-        const numStars = 1500 // Increased from 800
-        const baseSpeed = 1.5
-        const immersiveSpeed = 12.0
+        const numStars = 1000 // Reduced from 1500
+        const baseSpeed = 1.2 // Slightly slower
+        const immersiveSpeed = 10.0 // Slightly slower warp
 
         // Use a ref to track current speed for interpolation
         const currentMovingSpeed = { value: baseSpeed }
@@ -50,7 +59,7 @@ export default function StarField({ isImmersive = false }: StarFieldProps) {
                 x: Math.random() * canvas.width - canvas.width / 2,
                 y: Math.random() * canvas.height - canvas.height / 2,
                 z: Math.random() * canvas.width,
-                size: Math.random() * 1.5,
+                size: Math.random() * 1.2, // Reduced from 1.5
             })
         }
 
@@ -64,10 +73,10 @@ export default function StarField({ isImmersive = false }: StarFieldProps) {
         // Animation loop
         const animate = () => {
             // Smoothly interpolate speed based on immersive state
-            const targetSpeed = isImmersive ? immersiveSpeed : baseSpeed
+            const targetSpeed = isImmersiveRef.current ? immersiveSpeed : baseSpeed
             currentMovingSpeed.value += (targetSpeed - currentMovingSpeed.value) * 0.05
 
-            ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
+            ctx.fillStyle = "rgba(0, 0, 0, 0.25)" // Increased from 0.1 for shorter trails
             ctx.fillRect(0, 0, canvas.width, canvas.height)
 
             const centerX = canvas.width / 2
@@ -89,13 +98,14 @@ export default function StarField({ isImmersive = false }: StarFieldProps) {
                 let x = star.x * k + centerX
                 let y = star.y * k + centerY
 
-                // Apply parallax based on mouse position (increased from 50 to 100)
+                // Apply parallax based on mouse position
                 x += mouseX * (1 - star.z / canvas.width) * 100
                 y += mouseY * (1 - star.z / canvas.width) * 100
 
-                // Calculate size and opacity based on depth
-                const size = (1 - star.z / canvas.width) * star.size * 3 // Increased from *2
-                const opacity = Math.min(1, (1 - star.z / canvas.width) * 1.5) // Brighter stars
+                // Calculate size and opacity based on depth and breathing pulse
+                const pulseEffect = 1 + breathPulseRef.current * 0.5
+                const size = (1 - star.z / canvas.width) * star.size * 3 * pulseEffect
+                const opacity = Math.min(1, (1 - star.z / canvas.width) * 1.5 * pulseEffect)
 
                 // Draw star
                 if (x >= 0 && x <= canvas.width && y >= 0 && y <= canvas.height) {

@@ -1,5 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
+import Script from "next/script"
+
 import { Inter, Crimson_Text } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -48,7 +50,21 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${crimsonText.variable} font-sans antialiased text-foreground check-bg`}>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-8RM3G2ZC9V"
+        />
+        <Script id="google-analytics">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-8RM3G2ZC9V');
+          `}
+        </Script>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
+
           <ClickSoundProvider>
             <ThemeToggle />
             <PageTransition>{children}</PageTransition>

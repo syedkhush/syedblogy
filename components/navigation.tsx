@@ -32,6 +32,15 @@ export function Navigation() {
               Blog
             </Link>
             <Link
+              href="/journal"
+              className={`transition-colors ${isActive("/journal")
+                ? "text-slate-900 dark:text-slate-100 font-medium"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+                }`}
+            >
+              Journal
+            </Link>
+            <Link
               href="/concepts"
               className={`transition-colors ${isActive("/concepts")
                 ? "text-slate-900 dark:text-slate-100 font-medium"

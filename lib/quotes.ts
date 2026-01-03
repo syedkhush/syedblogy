@@ -91,7 +91,55 @@ export const stoicQuotes: Quote[] = [
         author: "Seneca",
     },
     {
-        text: "Don't explain your philosophy. Embodiment it.",
+        text: "Don't explain your philosophy. Embody it.",
         author: "Epictetus",
+    },
+    {
+        text: "The universe is change; our life is what our thoughts make it.",
+        author: "Marcus Aurelius",
+        source: "Meditations",
+    },
+    {
+        text: "If it is not right do not do it; if it is not true do not say it.",
+        author: "Marcus Aurelius",
+        source: "Meditations",
+    },
+    {
+        text: "Very little is needed to make a happy life; it is all within yourself in your way of thinking.",
+        author: "Marcus Aurelius",
+        source: "Meditations",
+    },
+    {
+        text: "How long are you going to wait before you demand the best for yourself?",
+        author: "Epictetus",
+        source: "Enchiridion",
+    },
+    {
+        text: "Cease to hope, and you will cease to fear.",
+        author: "Seneca",
+        source: "Letters from a Stoic",
+    },
+    {
+        text: "Life is very short and anxious for those who forget the past, neglect the present, and fear the future.",
+        author: "Seneca",
+        source: "On the Shortness of Life",
+    },
+    {
+        text: "True happiness is to enjoy the present, without anxious dependence upon the future.",
+        author: "Seneca",
+    },
+    {
+        text: "The soul becomes dyed with the color of its thoughts.",
+        author: "Marcus Aurelius",
+        source: "Meditations",
+    },
+    {
+        text: "Think of yourself as dead. You have lived your life. Now, take what's left and live it properly.",
+        author: "Marcus Aurelius",
+        source: "Meditations",
+    },
+    {
+        text: "A gem cannot be polished without friction, nor a man perfected without trials.",
+        author: "Seneca",
     },
 ]
