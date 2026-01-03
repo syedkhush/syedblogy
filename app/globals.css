@@ -66,89 +66,61 @@
 .sidebar-title {
   @apply text-lg font-bold mb-4 text-[#0055AA] uppercase tracking-wide border-b-2 border-[#0055AA] pb-2 inline-block;
 }
-/* Masterpiece Doodle Styles */
+
+/* Clean & Simple Doodle Styles */
 .doodle-block {
-  margin: 60px auto;
   text-align: center;
-  position: relative;
-  max-width: 700px;
-}
-
-/* Soft Dividers */
-.doodle-block::before,
-.doodle-block::after {
-  content: "";
-  display: block;
-  width: 60px;
-  height: 1px;
-  background: #e2e8f0;
-  margin: 0 auto;
-}
-
-.doodle-block::before {
-  margin-bottom: 40px;
-}
-
-.doodle-block::after {
-  margin-top: 40px;
+  margin: 40px auto;
+  max-width: 760px;
 }
 
 .doodle-image-container {
+  max-width: 100%;
+  width: 680px;
+  margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
   background: white;
-  animation: doodleFadeIn 0.8s ease-out forwards;
+  animation: doodleFadeIn 0.6s ease forwards;
   opacity: 0;
+}
+
+.doodle-row {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 8px;
 }
 
 .doodle-caption {
   font-size: 13px;
   color: #666;
-  margin-top: 12px;
+  margin-top: 6px;
   font-style: italic;
-  font-family: var(--font-inter);
 }
 
 @keyframes doodleFadeIn {
   from {
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateY(10px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* GOD-TIER Scene Structure */
-.doodle-row {
-  display: flex;
-  gap: 30px;
-  justify-content: center;
-  align-items: flex-start;
-  margin: 0;
-  flex-wrap: wrap;
-}
-
-.doodle-item {
-  text-align: center;
-  flex: 0 1 auto;
-}
-
-.doodle-item .doodle-image-container {
-  max-width: 380px;
-  width: 100%;
-}
-
 @media (max-width: 768px) {
+  .doodle-image-container {
+    width: 100%;
+    max-width: 450px;
+  }
+
   .doodle-row {
     flex-direction: column;
     align-items: center;
-    gap: 20px;
-  }
-  
-  .doodle-item {
-    width: 100%;
-    max-width: 350px;
+    gap: 12px;
   }
 }
