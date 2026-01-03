@@ -44,7 +44,7 @@ export default function StarField({ isImmersive = false, breathPulse = 0 }: Star
         const stars: Star[] = []
         const numStars = 1000 // Reduced from 1500
         const baseSpeed = 1.2 // Slightly slower
-        const immersiveSpeed = 10.0 // Slightly slower warp
+        const immersiveSpeed = 5.0 // Reduced intensity by 50%
 
         // Use a ref to track current speed for interpolation
         const currentMovingSpeed = { value: baseSpeed }

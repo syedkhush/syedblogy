@@ -9,15 +9,19 @@
 
 @layer base {
   :root {
-    --background: 240 10% 4%; /* Deep Charcoal */
-    --foreground: 34 20% 90%; /* Warm Sand */
+    --background: 240 10% 4%;
+    /* Deep Charcoal */
+    --foreground: 34 20% 90%;
+    /* Warm Sand */
     --card: 240 10% 6%;
     --card-foreground: 34 20% 90%;
     --popover: 240 10% 6%;
     --popover-foreground: 34 20% 90%;
-    --primary: 45 40% 55%; /* Muted Gold */
+    --primary: 45 40% 55%;
+    /* Muted Gold */
     --primary-foreground: 240 10% 4%;
-    --secondary: 240 10% 12%; /* Darker Gray */
+    --secondary: 240 10% 12%;
+    /* Darker Gray */
     --secondary-foreground: 34 20% 90%;
     --muted: 240 10% 12%;
     --muted-foreground: 240 5% 65%;
@@ -84,9 +88,11 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
+
   .font-serif {
     font-family: var(--font-crimson);
   }
@@ -135,4 +141,22 @@
 
 .prose li {
   @apply text-slate-700 dark:text-slate-300;
+}
+
+/* Fix for list rendering and spacing */
+.prose ul {
+  @apply list-disc pl-6 my-6 space-y-2;
+}
+
+.prose ol {
+  @apply list-decimal pl-6 my-6 space-y-2;
+}
+
+.prose p {
+  @apply leading-relaxed mb-8;
+  /* Increased margin for calmer reading */
+}
+
+.prose blockquote {
+  @apply border-l-4 border-slate-300 dark:border-slate-700 pl-6 italic my-8 text-lg;
 }
