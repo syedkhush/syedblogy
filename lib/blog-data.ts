@@ -21,19 +21,19 @@ export const blogPosts: BlogPost[] = [
       <p>Music, loudspeakers, prayers amplified far beyond the walls. Sleep was impossible.</p>
       
       <div class="not-prose doodle-block">
-        <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
-            <div class="w-full max-w-[350px]">
-                <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 0%; aspect-ratio: 1.1 / 1;" role="img" aria-label="A hand-drawn doodle showing a church with giant speakers blasting sound waves."></div>
+        <div class="doodle-row">
+            <div class="doodle-item">
+                <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 0%; aspect-ratio: 1.1 / 1;" role="img" aria-label="Stoic doodle showing a church with loud speakers and sound waves representing external noise"></div>
                 <div class="doodle-caption">The external noise 🔊</div>
             </div>
-            <div class="w-full max-w-[350px]">
-                <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 0%; aspect-ratio: 1.1 / 1;" role="img" aria-label="A hand-drawn doodle of a person in bed looking frustrated and awake."></div>
+            <div class="doodle-item">
+                <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 0%; aspect-ratio: 1.1 / 1;" role="img" aria-label="Stoic doodle of a person in bed awake and frustrated during a sleepless night"></div>
                 <div class="doodle-caption">The internal reaction 😤</div>
             </div>
         </div>
       </div>
 
-      <p>My first response was not philosophical. It was irritation. Anger. The familiar thought: "Why should I suffer because of someone else’s celebration?"</p>
+      <p>My first response was not philosophical. It was irritation. Anger. The familiar thought: "Why should I suffer because of someone else's celebration?"</p>
       
       <p>This is the moment where Stoicism is either theory—or practice.</p>
 
@@ -41,8 +41,10 @@ export const blogPosts: BlogPost[] = [
       <p>Marcus Aurelius wrote that we suffer more in imagination than in reality. That night, I began to see how true this was.</p>
       
       <div class="not-prose doodle-block">
-        <div class="w-full max-w-[500px] mx-auto doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 100% auto; background-position: 0% 38%; aspect-ratio: 1.3 / 1;" role="img" aria-label="A Stoic dichotomy of control table: 'In My Control' (judgement, response) vs 'Not In My Control' (noise, others, time)."></div>
-        <div class="doodle-caption">A simple mental map for the middle of a loud night. 🌙</div>
+        <div class="doodle-item" style="margin: 0 auto;">
+            <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 100% auto; background-position: 0% 38%; aspect-ratio: 1.3 / 1; max-width: 500px;" role="img" aria-label="Stoic dichotomy of control table showing noise outside vs inner peace and judgement within control"></div>
+            <div class="doodle-caption">A simple mental map for the middle of a loud night. 🌙</div>
+        </div>
       </div>
 
       <p>I could not control:</p>
@@ -73,8 +75,10 @@ export const blogPosts: BlogPost[] = [
       <h3>Amor Fati in an Uncomfortable Form</h3>
       
       <div class="not-prose doodle-block">
-        <div class="w-full max-w-[400px] mx-auto doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 82%; aspect-ratio: 1 / 1;" role="img" aria-label="A doodle of a person sitting peacefully with flowers blooming, labeled 'inner peace' and 'acceptance'."></div>
-        <div class="doodle-caption">From resistance to radical acceptance. ✨</div>
+        <div class="doodle-item" style="margin: 0 auto;">
+            <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 82%; aspect-ratio: 1 / 1; max-width: 400px;" role="img" aria-label="Stoic acceptance doodle with person sitting peacefully as flowers bloom representing inner peace"></div>
+            <div class="doodle-caption">From resistance to radical acceptance. ✨</div>
+        </div>
       </div>
 
       <p>Loving fate does not mean loving comfort. It means accepting reality without resistance. That night, fate arrived as: Sleeplessness, Irritation, Fatigue.</p>
@@ -96,8 +100,10 @@ export const blogPosts: BlogPost[] = [
       <p>Stoicism did not give me sleep. It gave me dignity in discomfort. And that, I realized, is its true gift.</p>
 
       <div class="not-prose doodle-block">
-        <div class="w-full max-w-[400px] mx-auto doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 82%; aspect-ratio: 1 / 1;" role="img" aria-label="A doodle of a person meditating peacefully as the sun rises."></div>
-        <div class="doodle-caption">The noise was external. The peace was internal. 🧘‍♂️</div>
+        <div class="doodle-item" style="margin: 0 auto;">
+            <div class="doodle-image-container" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 82%; aspect-ratio: 1 / 1; max-width: 400px;" role="img" aria-label="Stoic meditation doodle showing peaceful morning reflection as the sun rises after a loud night"></div>
+            <div class="doodle-caption">The noise was external. The peace was internal. 🧘‍♂️</div>
+        </div>
       </div>
 
       <h3>A Final Note to Myself</h3>

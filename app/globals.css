@@ -119,3 +119,36 @@
     transform: translateY(0);
   }
 }
+
+/* GOD-TIER Scene Structure */
+.doodle-row {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.doodle-item {
+  text-align: center;
+  flex: 0 1 auto;
+}
+
+.doodle-item .doodle-image-container {
+  max-width: 380px;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .doodle-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .doodle-item {
+    width: 100%;
+    max-width: 350px;
+  }
+}
