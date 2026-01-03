@@ -42,7 +42,7 @@ export default function StarField({ isImmersive = false, breathPulse = 0 }: Star
         }
 
         const stars: Star[] = []
-        const numStars = 1000 // Reduced from 1500
+        const numStars = 400 // Reduced from 1000
         const baseSpeed = 1.2 // Slightly slower
         const immersiveSpeed = 5.0 // Reduced intensity by 50%
 

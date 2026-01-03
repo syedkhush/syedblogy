@@ -217,7 +217,7 @@ export default function HomePage() {
                                     <motion.div variants={item} key={index}>
                                         <Link href={concept.href} className="h-full block">
                                             <Card
-                                                className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 h-full group"
+                                                className="bg-white/5 dark:bg-black/40 backdrop-blur-md border-border/50 shadow-sm hover:shadow-xl transition-all duration-500 h-full group border-white/10"
                                             >
                                                 <CardHeader className="pb-4">
                                                     <div className="mb-4 p-3 w-fit rounded-lg bg-primary/10 group-hover:bg-primary/30 transition-colors">
