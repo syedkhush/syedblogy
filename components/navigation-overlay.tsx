@@ -24,6 +24,10 @@ export default function NavigationOverlay() {
                     </span>
                 </h1>
 
+                <p className="text-lg md:text-xl text-slate-600 mb-8 font-serif italic max-w-2xl mx-auto px-4">
+                    Reflections on Stoic philosophy, writing, and mindful growth.
+                </p>
+
                 <ul className="flex justify-center gap-5 list-none">
                     {[
                         { label: 'Home', href: '/' },
