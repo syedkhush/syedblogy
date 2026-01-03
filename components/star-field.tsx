@@ -130,8 +130,7 @@ export default function StarField({ isImmersive = false, breathPulse = 0 }: Star
     return (
         <canvas
             ref={canvasRef}
-            className="fixed inset-0 -z-10 pointer-events-none bg-black/5 dark:bg-black/20"
-            style={{ mixBlendMode: "screen" }}
+            className="fixed inset-0 -z-10 pointer-events-none"
         />
     )
 }

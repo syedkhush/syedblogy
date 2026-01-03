@@ -175,7 +175,7 @@ export default function HomePage() {
                 <DailyPractice />
 
                 {/* Spiritual Exercises */}
-                <section className="py-24 px-4 sm:px-6 lg:px-8 bg-slate-50/50 dark:bg-slate-900/10">
+                <section className="py-24 px-4 sm:px-6 lg:px-8">
                     <div className="max-w-7xl mx-auto">
                         <div className="text-center mb-16">
                             <h2 className="text-3xl md:text-5xl font-serif font-light text-foreground mb-6">
