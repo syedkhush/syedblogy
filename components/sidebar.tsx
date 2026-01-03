@@ -6,6 +6,15 @@ import Link from "next/link"
 export function Sidebar() {
     return (
         <aside className="w-full space-y-8">
+            {/* Doodle for warmth */}
+            <div className="flex justify-center pt-4">
+                <img
+                    src="/doodle.png"
+                    alt="Reflective doodle"
+                    className="w-32 h-auto opacity-80 grayscale"
+                />
+            </div>
+
             {/* Email Subscription Box */}
             <div className="p-6 bg-[#0055AA]/5 border border-[#0055AA]/20 rounded-lg">
                 <h3 className="text-lg font-bold text-[#0055AA] uppercase tracking-wide mb-4">

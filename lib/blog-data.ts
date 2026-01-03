@@ -20,13 +20,31 @@ export const blogPosts: BlogPost[] = [
       <p>The church beside my house celebrated the New Year throughout the night.</p>
       <p>Music, loudspeakers, prayers amplified far beyond the walls. Sleep was impossible.</p>
       
+      <div class="not-prose my-12 text-center space-y-8">
+        <div class="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <div class="w-full max-w-[350px]">
+                <div class="bg-white border border-slate-100 rounded shadow-sm" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 0%; aspect-ratio: 1.1 / 1;"></div>
+                <p class="text-xs text-slate-500 italic mt-3">The external noise.</p>
+            </div>
+            <div class="w-full max-w-[350px]">
+                <div class="bg-white border border-slate-100 rounded shadow-sm" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 0%; aspect-ratio: 1.1 / 1;"></div>
+                <p class="text-xs text-slate-500 italic mt-3">The internal reaction.</p>
+            </div>
+        </div>
+      </div>
+
       <p>My first response was not philosophical. It was irritation. Anger. The familiar thought: "Why should I suffer because of someone else’s celebration?"</p>
       
       <p>This is the moment where Stoicism is either theory—or practice.</p>
 
-      <h3>The First Stoic Test: What Is in My Control?</h3>
+      <h3 id="control-test">The First Stoic Test: What Is in My Control?</h3>
       <p>Marcus Aurelius wrote that we suffer more in imagination than in reality. That night, I began to see how true this was.</p>
       
+      <div class="not-prose my-12 text-center">
+        <div class="w-full max-w-[500px] mx-auto bg-white border border-slate-100 rounded shadow-sm" style="background-image: url('/stoic-doodles.png'); background-size: 100% auto; background-position: 0% 36%; aspect-ratio: 1.4 / 1;"></div>
+        <p class="text-sm text-slate-500 italic mt-4">A simple mental map for the middle of a loud night.</p>
+      </div>
+
       <p>I could not control:</p>
       <ul>
         <li>The church</li>
@@ -53,6 +71,12 @@ export const blogPosts: BlogPost[] = [
       <p>Anger would not reduce the volume. It would only amplify my inner chaos.</p>
 
       <h3>Amor Fati in an Uncomfortable Form</h3>
+      
+      <div class="not-prose my-12 text-center">
+        <div class="w-full max-w-[400px] mx-auto bg-white border border-slate-100 rounded shadow-sm" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 0% 73%; aspect-ratio: 1 / 1;"></div>
+        <p class="text-sm text-slate-500 italic mt-4">From resistance to radical acceptance.</p>
+      </div>
+
       <p>Loving fate does not mean loving comfort. It means accepting reality without resistance. That night, fate arrived as: Sleeplessness, Irritation, Fatigue.</p>
       
       <p>Instead of wishing the night were different, I asked: <em>"How can I use this moment to train my mind?"</em></p>
@@ -70,6 +94,11 @@ export const blogPosts: BlogPost[] = [
       </ul>
       
       <p>Stoicism did not give me sleep. It gave me dignity in discomfort. And that, I realized, is its true gift.</p>
+
+      <div class="not-prose my-12 text-center">
+        <div class="w-full max-w-[400px] mx-auto bg-white border border-slate-100 rounded shadow-sm" style="background-image: url('/stoic-doodles.png'); background-size: 200% auto; background-position: 100% 73%; aspect-ratio: 1 / 1;"></div>
+        <p class="text-sm text-slate-500 italic mt-4">The noise was external. The peace was internal.</p>
+      </div>
 
       <h3>A Final Note to Myself</h3>
       <p>The world will never arrange itself for my comfort. There will always be noise—literal and metaphorical.</p>

@@ -8,30 +8,45 @@ export default function HomePage() {
   return (
     <div className="space-y-16">
       {/* Intro Section */}
-      <section className="text-center space-y-6 max-w-2xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h1 className="text-4xl md:text-5xl font-serif font-bold text-[#0055AA] mb-4">
-            Syed Khush
-          </h1>
-          <p className="text-xl text-slate-500 font-serif italic">
-            "A digital garden of Stoic wisdom."
-          </p>
-        </motion.div>
+      <section className="flex flex-col md:flex-row items-center gap-12 max-w-5xl mx-auto py-8">
+        <div className="flex-1 text-center md:text-left space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <h1 className="text-4xl md:text-6xl font-serif font-bold text-[#0055AA] mb-4">
+              Syed Khush
+            </h1>
+            <p className="text-xl md:text-2xl text-slate-500 font-serif italic">
+              "A digital garden of Stoic wisdom."
+            </p>
+          </motion.div>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-lg text-slate-700 leading-relaxed"
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+            className="text-lg md:text-xl text-slate-700 leading-relaxed"
+          >
+            Welcome. This is a place where I explore how ancient philosophy can help us navigate modern life.
+            I write about resilience, clarity, and the art of living well. No guru talks, just practical
+            reflections from a fellow student of the Stoics.
+          </motion.p>
+        </div>
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.3, duration: 0.6 }}
+          className="flex-shrink-0"
         >
-          Welcome. This is a place where I explore how ancient philosophy can help us navigate modern life.
-          I write about resilience, clarity, and the art of living well. No guru talks, just practical
-          reflections from a fellow student of the Stoics.
-        </motion.p>
+          <img
+            src="/doodle.png"
+            alt="A hand-drawn stickman sitting in a reflective, calm pose, looking towards a mountain top - representing Stoic introspection and aspiration."
+            className="w-[250px] md:w-[350px] h-auto grayscale select-none pointer-events-none"
+          />
+        </motion.div>
       </section>
 
       {/* Latest Posts */}
