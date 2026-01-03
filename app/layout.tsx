@@ -7,7 +7,6 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 
-import ClickSoundProvider from "@/components/click-sound-provider"
 import PageTransition from "@/components/page-transition"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
@@ -65,10 +64,8 @@ export default function RootLayout({
         </Script>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange={false}>
 
-          <ClickSoundProvider>
-            <ThemeToggle />
-            <PageTransition>{children}</PageTransition>
-          </ClickSoundProvider>
+          <ThemeToggle />
+          <PageTransition>{children}</PageTransition>
         </ThemeProvider>
       </body>
     </html>
