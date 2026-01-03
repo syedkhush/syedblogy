@@ -9,11 +9,12 @@ import { ThemeToggle } from "@/components/theme-toggle"
 
 import PageTransition from "@/components/page-transition"
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" })
 const crimsonText = Crimson_Text({
   subsets: ["latin"],
   weight: ["400", "600"],
   variable: "--font-crimson",
+  display: "swap",
 })
 
 export const metadata: Metadata = {
