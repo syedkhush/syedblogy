@@ -66,3 +66,56 @@
 .sidebar-title {
   @apply text-lg font-bold mb-4 text-[#0055AA] uppercase tracking-wide border-b-2 border-[#0055AA] pb-2 inline-block;
 }
+/* Masterpiece Doodle Styles */
+.doodle-block {
+  margin: 60px auto;
+  text-align: center;
+  position: relative;
+  max-width: 700px;
+}
+
+/* Soft Dividers */
+.doodle-block::before,
+.doodle-block::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 0 auto;
+}
+
+.doodle-block::before {
+  margin-bottom: 40px;
+}
+
+.doodle-block::after {
+  margin-top: 40px;
+}
+
+.doodle-image-container {
+  overflow: hidden;
+  border-radius: 8px;
+  background: white;
+  animation: doodleFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.doodle-caption {
+  font-size: 13px;
+  color: #666;
+  margin-top: 12px;
+  font-style: italic;
+  font-family: var(--font-inter);
+}
+
+@keyframes doodleFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
