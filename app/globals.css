@@ -70,13 +70,16 @@
 /* Clean & Simple Doodle Styles */
 .doodle-block {
   text-align: center;
-  margin: 40px auto;
-  max-width: 760px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
 }
 
 .doodle-image-container {
-  max-width: 100%;
-  width: 680px;
+  max-width: 680px;
+  width: 100%;
   margin: 0 auto;
   overflow: hidden;
   border-radius: 8px;
