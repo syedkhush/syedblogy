@@ -32,7 +32,7 @@ export default function AboutPage() {
             </div>
             <div>
               <h1 className="text-4xl md:text-5xl font-serif font-light text-slate-800 dark:text-slate-200">
-                About Syed Khush
+                Why Stoicism Saved Me
               </h1>
               <p className="text-lg text-slate-600 dark:text-slate-400 mt-2">
                 Developer, Philosopher, Digital Gardener

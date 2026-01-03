@@ -29,34 +29,7 @@ export function Navigation() {
                 : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
                 }`}
             >
-              Blog
-            </Link>
-            <Link
-              href="/journal"
-              className={`transition-colors ${isActive("/journal")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Journal
-            </Link>
-            <Link
-              href="/concepts"
-              className={`transition-colors ${isActive("/concepts")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Concepts
-            </Link>
-            <Link
-              href="/meditations"
-              className={`transition-colors ${isActive("/meditations")
-                ? "text-slate-900 dark:text-slate-100 font-medium"
-                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
-                }`}
-            >
-              Meditations
+              Essays
             </Link>
             <Link
               href="/about"
@@ -66,6 +39,24 @@ export function Navigation() {
                 }`}
             >
               About
+            </Link>
+            <Link
+              href="/reading-list"
+              className={`transition-colors ${isActive("/reading-list")
+                ? "text-slate-900 dark:text-slate-100 font-medium"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+                }`}
+            >
+              Reading List
+            </Link>
+            <Link
+              href="/contact"
+              className={`transition-colors ${isActive("/contact")
+                ? "text-slate-900 dark:text-slate-100 font-medium"
+                : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100"
+                }`}
+            >
+              Contact
             </Link>
           </div>
         </div>
