@@ -23,9 +23,16 @@ export default function SupportPage() {
             </p>
 
             <div className="space-y-4">
-                <Button size="lg" className="text-lg px-12 py-6 bg-[#0055AA] hover:bg-[#004488] rounded-full">
-                    Become a Patron
-                </Button>
+                <a
+                    href="https://www.patreon.com/syedkhush"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block"
+                >
+                    <Button size="lg" className="text-lg px-12 py-6 bg-[#0055AA] hover:bg-[#004488] rounded-full">
+                        Become a Patron
+                    </Button>
+                </a>
                 <p className="text-slate-500 text-sm">
                     or simply share a post with a friend. That helps too.
                 </p>

@@ -78,21 +78,7 @@ export function Sidebar() {
                 </div>
             </div>
 
-            {/* Support Box */}
-            <div className="sidebar-box text-center">
-                <h3 className="sidebar-title mx-auto">Support</h3>
-                <div className="flex justify-center mb-4">
-                    <Heart className="w-12 h-12 text-[#FF4D4F]" />
-                </div>
-                <p className="text-slate-600 mb-6 text-sm">
-                    If you find value in these writings, consider supporting the page to keep it ad-free.
-                </p>
-                <Link href="/support">
-                    <Button variant="outline" className="w-full border-slate-300 hover:bg-slate-50 hover:text-[#0055AA] hover:border-[#0055AA]">
-                        Support the Page
-                    </Button>
-                </Link>
-            </div>
+
 
             {/* Recommended Posts */}
             <div className="sidebar-box">
